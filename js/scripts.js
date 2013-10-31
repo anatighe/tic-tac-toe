@@ -55,22 +55,21 @@ var Game = {
   },
 
   checkDiagonal: function() {
-    if (this.board[0].symbol === this.board[4].symbol && this.board[4].symbol === this.board[8].symbol && this.board[0].symbol !== "") {
-      return true;
-    } else if (this.board[2].symbol === this.board[4].symbol && this.board[4].symbol === this.board[6].symbol && this.board[2].symbol !== "") {
-      return true;     
-    } else {
-      return false;
-    }  
+    return (this.board[0].symbol === this.board[4].symbol && 
+        this.board[4].symbol === this.board[8].symbol && 
+        this.board[0].symbol !== "") ||
+      (this.board[2].symbol === this.board[4].symbol && 
+        this.board[4].symbol === this.board[6].symbol && 
+        this.board[2].symbol !== "");
   },
 
   checkHorizontal: function() {
-    for(var i = 0; i < 7; i+=3) {
+    for (var i = 0; i < 7; i+=3) { 
       if (this.board[i].symbol === this.board[i+1].symbol && this.board[i+1].symbol === this.board[i+2].symbol && this.board[i].symbol !== "") {
         return true;
-      } 
-    } return false; 
-  },
+      }
+    } return false;
+   },
 
   checkVertical: function() {
     for (var i = 0; i < 3; i++) {
@@ -81,15 +80,7 @@ var Game = {
   },
 
   over: function() {  
-    if (this.checkDiagonal()) {
-      return true;
-    } else if(this.checkHorizontal()) {
-      return true;
-    } else if (this.checkVertical()) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.checkDiagonal() || this.checkHorizontal() || this.checkVertical();
   },
 
   cats: function() {
@@ -120,7 +111,6 @@ $(function() {
 
         if (game.over()) {
           $(".result").empty().append((game.board[index].symbol.toUpperCase()) + "  is the winner!");
-          // $(".result").empty().append((game.board[index].symbol) + " is the winner!");
           $(".start").show();
         } else if (game.cats()) {
           $(".result").empty().append("Cat's game!");
