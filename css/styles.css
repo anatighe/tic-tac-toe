@@ -1,0 +1,32 @@
+td {
+  width: 150px;
+  height:150px;
+}
+
+table {
+	text-align: center;
+	border-color: red;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	font-family: "arial black";
+	font-size: 60px;
+}	
+
+
+button {
+	padding: 10px;
+	margin: 10px;
+}
+
+.header {
+  text-align: center;
+}
+
+.result {
+	text-align: center;
+}
+
+.start {
+	display: none;
+}
