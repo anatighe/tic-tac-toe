@@ -108,14 +108,12 @@ $(function() {
           game.turn(game.board[index]);
           $("td#" + index).append(game.board[index].symbol); 
         }  
-
         if (game.over()) {
           $(".result").empty().append((game.board[index].symbol.toUpperCase()) + "  is the winner!");
           $(".start").show();
         } else if (game.cats()) {
           $(".result").empty().append("Cat's game!");
           $(".start").show();
-
         }
       });
     });  
